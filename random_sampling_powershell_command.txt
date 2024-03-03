@@ -1,0 +1,16 @@
+ls | shuf -n $(( $(ls | wc -l) *  30 / 100))
+
+
+
+gci somefolder | random -c $x | mi -dest someotherfolder
+
+
+gci "E:\MDS Notes and Assignments\Master Thesis\Code vulnerabilities dataset\2022-05-12-php-test-suite-sqli-v1-0-0" | random -c 12429 | mi -dest "E:\MDS Notes and Assignments\Master Thesis\Code vulnerabilities dataset\sampled"
+
+
+Get-ChildItem E:\MDS Notes and Assignments\Master Thesis\Code vulnerabilities dataset\sql-only dataset | Get-Random -Count $x | Move-Item -Destination E:\MDS Notes and Assignments\Master Thesis\Code vulnerabilities dataset\sampled
+
+
+Example::
+Get-ChildItem "E:\MDS Notes and Assignments\Master Thesis\Code vulnerabilities dataset\sql-only dataset" | Get-Random -Count 9361 | Move-Item -Destination "E:\MDS Notes and Assignments\Master Thesis\Code vulnerabilities dataset\sampled"
+
