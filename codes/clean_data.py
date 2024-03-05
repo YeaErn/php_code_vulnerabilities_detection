@@ -26,7 +26,6 @@ for sub_folder in os.listdir(base_dir):
                 tmp_data.append(state)
 
             # identify <? to keep only the php codes
-
             if line.startswith('<?'):
                 phpStartTagFound = True
                 
@@ -36,16 +35,18 @@ for sub_folder in os.listdir(base_dir):
                     continue
 
                 # concatenate code lines
-                line = line.replace('\n','')
+                line = line.replace('\n','')                
                 concatenated_string += line
                 
-        tmp_data.append(concatenated_string)        
+        tmp_data.append(concatenated_string)
 
     csv_data.append(tmp_data)
 
-
 # store as csv
 with open(output_csv, "w", encoding='UTF8', newline='') as f:
-    writer = csv.writer(f)
+    writer = csv.writer(f, quoting=csv.QUOTE_NONE, escapechar='\\')
     writer.writerow(csv_header)
     writer.writerows(csv_data)
+    
+# need to explicitly replace escape character \
+# e.g. \" will be replaced with "
