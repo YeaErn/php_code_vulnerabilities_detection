@@ -35,7 +35,7 @@ for sub_folder in os.listdir(base_dir):
                     continue
 
                 # concatenate code lines
-                line = line.replace('\n','')                
+                line = line.replace('\n','')
                 concatenated_string += line
                 
         tmp_data.append(concatenated_string)
@@ -44,9 +44,6 @@ for sub_folder in os.listdir(base_dir):
 
 # store as csv
 with open(output_csv, "w", encoding='UTF8', newline='') as f:
-    writer = csv.writer(f, quoting=csv.QUOTE_NONE, escapechar='\\')
+    writer = csv.writer(f, quoting=csv.QUOTE_NONE, escapechar='\\', delimiter="|")
     writer.writerow(csv_header)
     writer.writerows(csv_data)
-    
-# need to explicitly replace escape character \
-# e.g. \" will be replaced with "
